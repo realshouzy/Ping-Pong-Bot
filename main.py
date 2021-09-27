@@ -3,27 +3,22 @@ import os
 import json
 import random
 import asyncio
+from discord.ext import tasks
+from itertools import cycle
 from keep_alive import keep_alive
 
 bot = discord.Client()
+status = cycle(['Ping', 'Pong'])
 
 @bot.event
 async def on_ready():
+    change_status.start()
     print('Logged in as {0.user}'.format(bot))
 
-@bot.event
-async def ch_pr():
-  await bot.wait_until_ready()
 
-  statuses = [f"Ping Pong on {len(bot.guilds)} servers", "pp!help"]
-
-  while not bot.is_closed():
- 
-    status = random.choice(statuses)
-    await bot.change_presence(activity=discord.Game(name=status))
-  
-    await asyncio.sleep(5)
-    print('Status changed')
+@tasks.loop(seconds=5)
+async def change_status():
+  await bot.change_presence(activity=discord.Game(next(status)))
 
 
 @bot.event
@@ -60,9 +55,13 @@ async def on_message(message):
     print('Votelink sent')
 
   if message.content.startswith('pp!website'):
-    await message.channel.send('https://ping-pong-bot.shouzy.repl.co/')
+    await message.channel.send('https://Ping-Pong-Bot.shouzy.repl.co')
     print('Websitelink sent')
 
   if message.content.startswith('pp!code'):
     await message.channel.send('You can finde the code here: https://gist.github.com/realshouzy/3ef3c7df753d2e8ce7db159f00cd0006')
     print('Codelink sent')
+
+
+keep_alive()
+bot.run(os.getenv('TOKEN'))
