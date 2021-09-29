@@ -59,7 +59,7 @@ async def on_message(message):
     print('Websitelink sent')
 
   if message.content.startswith('pp!code'):
-    await message.channel.send('You can finde the code here: https://gist.github.com/realshouzy/3ef3c7df753d2e8ce7db159f00cd0006')
+    await message.channel.send('You can finde the code here: https://github.com/realshouzy/Ping-Pong-Bot')
     print('Codelink sent')
 
 
