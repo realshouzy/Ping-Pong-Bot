@@ -21,5 +21,3 @@ def keep_alive():
 #The code is from: https://gist.github.com/beaucarnes/51ec37412ab181a2e3fd320ee474b671
 #After that go on uptimerobot and create a new monitor with the url the keep_alive.py file created.
 #Then the bot will stay then online for ever.
-#from flask import Flask
-#from threading import Thread
