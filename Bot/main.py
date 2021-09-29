@@ -55,7 +55,7 @@ async def on_message(message):
     print('Votelink sent')
 
   if message.content.startswith('pp!website'):
-    await message.channel.send('https://Ping-Pong-Bot.shouzy.repl.co')
+    await message.channel.send('https://ping-pong.shouzy.repl.co/')
     print('Websitelink sent')
 
   if message.content.startswith('pp!code'):
