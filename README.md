@@ -5,7 +5,7 @@
     <p> If you like it, you can vote for it here: <strong> https://top.gg/bot/831066967287791627 </strong> </p>
 
 <a href="https://top.gg/bot/831066967287791627">
-<img src="https://top.gg/api/widget/831066967287791627.svg", height=300, width=200>
+<img src="https://top.gg/api/widget/831066967287791627.svg", height=600, width=400>
 </a>
    </head>
 </html>
