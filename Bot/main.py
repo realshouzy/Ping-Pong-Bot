@@ -40,7 +40,7 @@ async def on_message(message): # When someone posts a messages, the bot procceds
     print('Stats sent')
 
   if message.content.startswith('pp!ping'):
-    await message.channel.send(f'The ping is {round(bot.latency * 1000)}ms') # This shows the bots latency and mulitplies it with 1000 and rounds the sulution to get on ms
+    await message.channel.send(f'The ping is {round(bot.latency * 1000)}ms') # This shows the bots latency and mulitplies it with 1000 and rounds the sulution to get on milliseconds
     print('Ping sent')
     
   if message.content.startswith('pp!invite'):
