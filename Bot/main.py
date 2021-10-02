@@ -25,7 +25,8 @@ async def change_status(): # Defines the change_status function
 async def on_message(message): # When someone posts a messages, the bot procceds the following code
   if message.author == bot.user: # Checks if the author of the messages is the bot
     return # If the author is the bot, it wont procced with the following code
-
+  
+  # If a message start with a certain pharse, it will send a certain messages back and print a certain phrase in the console
   if message.content.startswith('Ping'):
     await message.channel.send('Pong')
     print('Played Ping Pong')
@@ -39,7 +40,7 @@ async def on_message(message): # When someone posts a messages, the bot procceds
     print('Stats sent')
 
   if message.content.startswith('pp!ping'):
-    await message.channel.send(f'The ping is {round(bot.latency * 1000)}ms')
+    await message.channel.send(f'The ping is {round(bot.latency * 1000)}ms') # This shows the bots latency and mulitplies it with 1000 and rounds the sulution to get on ms
     print('Ping sent')
     
   if message.content.startswith('pp!invite'):
@@ -47,7 +48,7 @@ async def on_message(message): # When someone posts a messages, the bot procceds
     print('Invitelink sent')
 
   if message.content.startswith('pp!stats'):
-    await message.channel.send(f'Playing Ping Pong on {len(bot.guilds)} servers.')
+    await message.channel.send(f'Playing Ping Pong on {len(bot.guilds)} servers.') # Shows the number of servers the bot is on
     print('Stats sent')
 
   if message.content.startswith('pp!vote'):
