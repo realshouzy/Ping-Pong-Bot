@@ -5,26 +5,26 @@ import random
 import asyncio
 from discord.ext import tasks
 from itertools import cycle
-from keep_alive import keep_alive
+from keep_alive import keep_alive # Importing the keep_alive function out of the keep_alive.py file
 
 bot = discord.Client()
-status = cycle(['Ping', 'Pong'])
+status = cycle(['Ping', 'Pong']) # The list of the statuses the bot has as its activity
 
 @bot.event
-async def on_ready():
-    change_status.start()
-    print('Logged in as {0.user}'.format(bot))
+async def on_ready(): # When the bot is ready, online and functionat it:
+    change_status.start() # starts the change_status function  
+    print('Logged in as {0.user}'.format(bot)) # and it prints "Logged in as [bots name + bots tag]" in the console
 
 
-@tasks.loop(seconds=5)
-async def change_status():
-  await bot.change_presence(activity=discord.Game(next(status)))
+@tasks.loop(seconds=5) # Creates a loop every 5 seconds 
+async def change_status(): # Defines the change_status function
+  await bot.change_presence(activity=discord.Game(next(status))) # This changes the bots activity status with one of the statuses out of the status list
 
 
 @bot.event
-async def on_message(message):
-  if message.author == bot.user:
-    return
+async def on_message(message): # When someone posts a messages, the bot procceds the following code
+  if message.author == bot.user: # Checks if the author of the messages is the bot
+    return # If the author is the bot, it wont procced with the following code
 
   if message.content.startswith('Ping'):
     await message.channel.send('Pong')
@@ -63,5 +63,5 @@ async def on_message(message):
     print('Codelink sent')
 
 
-keep_alive()
-bot.run(os.getenv('TOKEN'))
+keep_alive() # Executes the keep_alive function out of the keep_alive.py file
+bot.run(os.getenv('TOKEN')) # Gets the bots token from the env file with help of os
