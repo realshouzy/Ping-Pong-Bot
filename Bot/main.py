@@ -11,13 +11,13 @@ bot = discord.Client()
 status = cycle(['Ping', 'Pong']) # The list of the statuses the bot has as its activity
 
 @bot.event
-async def on_ready(): # When the bot is ready, online and functionat it:
+async def on_ready(): # When the bot is ready, online and functional it:
     change_status.start() # starts the change_status function  
-    print('Logged in as {0.user}'.format(bot)) # and it prints "Logged in as [bots name + bots tag]" in the console
+    print('Logged in as {0.user}'.format(bot)) # prints "Logged in as [bot's name + bot's tag]"
 
 
 @tasks.loop(seconds=5) # Creates a loop every 5 seconds 
-async def change_status(): # Defines the change_status function
+async def change_status(): 
   await bot.change_presence(activity=discord.Game(next(status))) # This changes the bots activity status with one of the statuses out of the status list
 
 
