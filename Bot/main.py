@@ -1,3 +1,6 @@
+"""
+At first: This bot was coded in Replit.
+"""
 import discord
 import os
 import json
