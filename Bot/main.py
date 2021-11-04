@@ -67,6 +67,7 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
+  try:
     embed = discord.Embed(title=f" The ping is: ``{round(bot.latency * 1000)}ms``",
                           description='',
                           timestamp=ctx.message.created_at,
@@ -77,9 +78,23 @@ async def ping(ctx):
 
     await ctx.reply(embed=embed)
     print("Ping was sent")
+  
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
 
 @bot.command()
 async def stats(ctx):
+  try:
     embed = discord.Embed(title='',
                           description=f"**Playing Ping Pong on {len(bot.guilds)} servers.**",
                           timestamp=ctx.message.created_at,
@@ -91,8 +106,22 @@ async def stats(ctx):
     await ctx.reply(embed=embed)
     print("Stats were sent")
 
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
+
 @bot.command()
 async def invite(ctx):
+  try:
     embed = discord.Embed(
         title="",
         description=
@@ -107,9 +136,22 @@ async def invite(ctx):
     await ctx.reply(embed=embed)
     print("Invitelink was sent")
 
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
 
 @bot.command()
 async def vote(ctx):
+  try:
     embed = discord.Embed(
         title="",
         description=
@@ -124,9 +166,22 @@ async def vote(ctx):
     await ctx.reply(embed=embed)
     print("Votelink was sent")
 
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
 
 @bot.command()
 async def website(ctx):
+  try:
     embed = discord.Embed(
         title="",
         description="**You can find the bots website by clicking the link:**\n**__https://ping-pong.shouzy.repl.co/__**",
@@ -140,9 +195,22 @@ async def website(ctx):
     await ctx.reply(embed=embed)
     print("Websitelink was sent")
 
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
 
 @bot.command()
 async def code(ctx):
+  try:
     embed = discord.Embed(
         title="",
         description=
@@ -157,33 +225,61 @@ async def code(ctx):
     await ctx.reply(embed=embed)
     print("Codelink was sent")
 
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
+
 
 @bot.command()
 async def help(ctx):
-  embed = discord.Embed(
-        title="Help",
-        description=
-        "This are all commands and their functions:",
-        timestamp=ctx.message.created_at,
-        colour=discord.Colour.green())
+  try:
+    embed = discord.Embed(
+          title="Help",
+          description=
+          "This are all commands and their functions:",
+          timestamp=ctx.message.created_at,
+          colour=discord.Colour.green())
 
-  embed.set_author(name='🏓Ping Pong')
-  embed.add_field(name='``pp!help``', value='Shows this messages', inline=False)
-  embed.add_field(name='``pp!info``', value='Shows information about the Bot', inline=False)
-  embed.add_field(name='``pp!ping``', value='Shows the bots lantency', inline=False)
-  embed.add_field(name='``pp!stats``', value='Shows the bots stats', inline=False)
-  embed.add_field(name='``pp!code``', value='Shows the link to bots code', inline=False)
-  embed.add_field(name='``pp!website``', value='Shows the link to bots website', inline=False)
-  embed.add_field(name='``pp!invite``', value='Shows the bots invitelink', inline=False)
-  embed.add_field(name='``pp!vote``', value='Shows the link where you can vote for the bot', inline=False)
-  embed.set_footer(text=f"Requested by {ctx.author}",
-                     icon_url=ctx.author.avatar_url)
-   
-  await ctx.reply(embed=embed)
-  print("Help was sent")
+    embed.set_author(name='🏓Ping Pong')
+    embed.add_field(name='``pp!help``', value='Shows this messages', inline=False)
+    embed.add_field(name='``pp!info``', value='Shows information about the Bot', inline=False)
+    embed.add_field(name='``pp!ping``', value='Shows the bots lantency', inline=False)
+    embed.add_field(name='``pp!stats``', value='Shows the bots stats', inline=False)
+    embed.add_field(name='``pp!code``', value='Shows the link to bots code', inline=False)
+    embed.add_field(name='``pp!website``', value='Shows the link to bots website', inline=False)
+    embed.add_field(name='``pp!invite``', value='Shows the bots invitelink', inline=False)
+    embed.add_field(name='``pp!vote``', value='Shows the link where you can vote for the bot', inline=False)
+    embed.set_footer(text=f"Requested by {ctx.author}",
+                      icon_url=ctx.author.avatar_url)
+    
+    await ctx.reply(embed=embed)
+    print("Help was sent")
+  
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
 
 @bot.command()
 async def info(ctx):
+  try:
     embed = discord.Embed(
         title="",
         description=
@@ -204,6 +300,19 @@ async def info(ctx):
 
     await ctx.reply(embed=embed)
     print("Codelink was sent")
+
+  except:
+    embed = discord.Embed(title="Something went wrong",
+                              description='**Please try later again**',
+                              timestamp=ctx.message.created_at,
+                              colour=discord.Colour.red())
+
+    embed.set_footer(
+            text='🏓Ping Pong  •  Bot by shouzy',
+            icon_url=bot.user.avatar_url
+        )
+    embed.set_author(name='❌Error')
+    await ctx.reply(embed=embed)
 
 
 keep_alive() # Executes the keep_alive function out of the keep_alive.py file
