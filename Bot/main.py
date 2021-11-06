@@ -13,10 +13,10 @@ from keep_alive import keep_alive # Importing the keep_alive function out of the
 
 bot = commands.Bot(command_prefix='pp!')
 bot.remove_command("help")
-status = cycle(['Ping', 'Pong']) # The list of the statuses the bot has as its activity
+status = cycle(['Ping', 'Pong']) # List of the statuses the bot has as its activity
 
 @bot.event
-async def on_ready(): # When the bot is ready, online and functional it:
+async def on_ready():
     print("Started Bot")
     change_status.start()
     print('----------------------------')
@@ -34,7 +34,7 @@ async def change_status():
 @bot.event
 async def on_message(msg): # When someone posts a messages, the bot procceds the following code
   if msg.author == bot.user: # Checks if the author of the messages is the bot
-    return # If the author is the bot, it wont procced with the following code
+    return
   
   # If a message start with a certain pharse, it will send a certain messages back and print a certain phrase in the console
   if msg.content.startswith('Ping'):
@@ -45,7 +45,7 @@ async def on_message(msg): # When someone posts a messages, the bot procceds the
     await msg.channel.send('Pong')
     print('Played ping Pong')
 
-  await bot.process_commands(msg) # this procceds the following commands
+  await bot.process_commands(msg) # procceds the following commands
 
 
 @bot.event
@@ -316,4 +316,4 @@ async def info(ctx):
 
 
 keep_alive() # Executes the keep_alive function out of the keep_alive.py file
-bot.run(os.getenv('TOKEN')) # Gets the bots token from the env file with help of os
+bot.run(os.getenv('TOKEN')) # Gets the bots token from the env
